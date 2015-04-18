@@ -1,7 +1,9 @@
 package test;
 
 import static org.junit.Assert.*;
+import main.Game;
 
+import org.hamcrest.Matcher;
 import org.junit.Test;
 
 public class BowlingGameTest {
@@ -14,6 +16,10 @@ public class BowlingGameTest {
 			game.roll( 0 );
 		
 		assertThat( game , finishedWithScore( 0 ) );
+	}
+
+	private Matcher<? super Game> finishedWithScore(int score) {
+		return new GameScoreMather( score );
 	}
 
 }

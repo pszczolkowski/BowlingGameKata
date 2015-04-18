@@ -32,8 +32,7 @@ public class BowlingGameTest {
 	
 	@Test
 	public void gameWithOneSpare_expectedScore16(){
-		game.roll( 5 );
-		game.roll( 5 ); // spare
+		rollSpare();
 		game.roll( 3 );
 		rollMany( 17 , 0 );
 		
@@ -41,6 +40,10 @@ public class BowlingGameTest {
 	}
 	
 
+	private void rollSpare() {
+		game.roll( 5 );
+		game.roll( 5 );
+	}
 	private void rollMany( int n , int pins ) {
 		for( int i = 0; i < n ; i++ ) {
 			game.roll( pins );

@@ -29,6 +29,17 @@ public class BowlingGameTest {
 		
 		assertThat(game, finishedWithScore( 20 ));
 	}
+	
+	@Test
+	public void gameWithOneSpare_expectedScore16(){
+		game.roll( 5 );
+		game.roll( 5 ); // spare
+		game.roll( 3 );
+		rollMany( 17 , 0 );
+		
+		assertThat(game, finishedWithScore( 16 ));
+	}
+	
 
 	private void rollMany( int n , int pins ) {
 		for( int i = 0; i < n ; i++ ) {

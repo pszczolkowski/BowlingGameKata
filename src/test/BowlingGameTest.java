@@ -41,15 +41,17 @@ public class BowlingGameTest {
 	
 	@Test
 	public void gameWithOneStrike_expectedScore24(){
-		game.roll( 10 );	// strike
+		rollStrike();
 		game.roll( 3 );
 		game.roll( 4 );
 		rollMany(16, 0);
 		
 		assertThat(game, finishedWithScore( 24 ));
 	}
-	
 
+	private void rollStrike() {
+		game.roll( 10 );
+	}
 	private void rollSpare() {
 		game.roll( 5 );
 		game.roll( 5 );

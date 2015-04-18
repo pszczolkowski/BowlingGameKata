@@ -48,6 +48,12 @@ public class BowlingGameTest {
 		
 		assertThat(game, finishedWithScore( 24 ));
 	}
+	
+	@Test
+	public void perfectGame_expectedScore300(){
+		rollMany( 12 , 10 );
+		assertThat(game, finishedWithScore( 300 ));
+	}
 
 	private void rollStrike() {
 		game.roll( 10 );

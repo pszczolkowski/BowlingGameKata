@@ -15,6 +15,14 @@ public class BowlingGameTest {
 		
 		assertThat( game , finishedWithScore( 0 ) );
 	}
+	
+	@Test
+	public void gameWithAllOnes_expectedScore20(){
+		Game game = new Game();
+		rollMany(game, 1, 20);
+		
+		assertThat(game, finishedWithScore( 20 ));
+	}
 
 	private void rollMany(Game game, int pins, int n) {
 		for( int i = 0; i < n ; i++ ) {

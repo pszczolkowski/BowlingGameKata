@@ -36,12 +36,22 @@ public class BowlingGameTest {
 		
 		assertThat( game , endedWithScore( 16 ) );
 	}
+	
+	@Test
+	public void oneStrike_gameShouldEndWithScoreTwentyFour(){
+		game.roll( 10 );	// STRIKE
+		game.roll( 3 );
+		game.roll( 4 );
+		rollMany(16, 0);
+		
+		assertThat( game , endedWithScore( 24 ) );
+	}
+	
 
 	private void rollSpare() {
 		game.roll( 5 );
 		game.roll( 5 );
-	}
-	
+	}	
 	
 	private void rollMany(int n, int pins) {
 		for( int i = 0 ; i < n ; i++ ){

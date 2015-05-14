@@ -3,6 +3,7 @@ package test;
 import static org.junit.Assert.*;
 import main.Game;
 
+import org.hamcrest.Matcher;
 import org.junit.Test;
 
 public class BowlingGameTest {
@@ -16,6 +17,10 @@ public class BowlingGameTest {
 		}
 		
 		assertThat( game , endedWithScore( 0 ) );
+	}
+
+	private Matcher<? super Game> endedWithScore(int expectedScore) {
+		return new GameScoreMatcher( expectedScore );
 	}
 
 }

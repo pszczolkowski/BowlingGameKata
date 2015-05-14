@@ -46,6 +46,13 @@ public class BowlingGameTest {
 		
 		assertThat( game , endedWithScore( 24 ) );
 	}
+	
+	@Test
+	public void perfectGame_shouldendWithScoreThreeHundred(){
+		rollMany( 12 , 10);
+		assertThat( game , endedWithScore( 300 ) );
+	}
+	
 
 	private void rollStrike() {
 		game.roll( 10 );

@@ -4,30 +4,35 @@ import static org.junit.Assert.assertThat;
 import static test.GameScoreMatcher.endedWithScore;
 import main.Game;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class BowlingGameTest {
 	
-	@Test
-	public void testGutterGame(){
-		Game game = new Game();
-		
-		for( int i = 0 ; i < 20 ; i++ ){
-			game.roll( 0 );
-		}
-		
-		assertThat( game , endedWithScore( 0 ) );
+	private Game game;
+
+	@Before
+	public void setUp(){
+		game = new Game();
 	}
 	
 	@Test
+	public void testGutterGame(){
+		rollMany(20, 0);
+		assertThat( game , endedWithScore( 0 ) );
+	}
+
+	@Test
 	public void allOneThrows_gameShouldEndWithScoreTwenty(){
-		Game game = new Game();
-		
-		for( int i = 0 ; i < 20 ; i++ ){
-			game.roll( 1 );
-		}
-		
+		rollMany(20, 1);
 		assertThat( game , endedWithScore( 20 ) );
+	}
+	
+	
+	private void rollMany(int n, int pins) {
+		for( int i = 0 ; i < n ; i++ ){
+			game.roll( pins );
+		}
 	}
 
 }

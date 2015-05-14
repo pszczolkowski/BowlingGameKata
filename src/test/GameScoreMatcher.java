@@ -3,6 +3,7 @@ package test;
 import main.Game;
 
 import org.hamcrest.Description;
+import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
 public class GameScoreMatcher extends TypeSafeMatcher<Game> {
@@ -27,6 +28,10 @@ public class GameScoreMatcher extends TypeSafeMatcher<Game> {
 	@Override
 	protected boolean matchesSafely(Game game) {
 		return game.score() == expectedScore;
+	}
+	
+	public static Matcher<? super Game> endedWithScore(int expectedScore) {
+		return new GameScoreMatcher( expectedScore );
 	}
 
 }

@@ -28,6 +28,16 @@ public class BowlingGameTest {
 		assertThat( game , endedWithScore( 20 ) );
 	}
 	
+	@Test
+	public void oneSpare_gameShouldEndWithScoreSixteen(){
+		game.roll( 5 );
+		game.roll( 5 );	// SPARE
+		game.roll( 3 );
+		rollMany(17, 0);
+		
+		assertThat( game , endedWithScore( 16 ) );
+	}
+	
 	
 	private void rollMany(int n, int pins) {
 		for( int i = 0 ; i < n ; i++ ){

@@ -18,5 +18,16 @@ public class BowlingGameTest {
 		
 		assertThat( game , endedWithScore( 0 ) );
 	}
+	
+	@Test
+	public void allOneThrows_gameShouldEndWithScoreTwenty(){
+		Game game = new Game();
+		
+		for( int i = 0 ; i < 20 ; i++ ){
+			game.roll( 1 );
+		}
+		
+		assertThat( game , endedWithScore( 20 ) );
+	}
 
 }

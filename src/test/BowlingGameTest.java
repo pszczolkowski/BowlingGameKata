@@ -39,12 +39,16 @@ public class BowlingGameTest {
 	
 	@Test
 	public void oneStrike_gameShouldEndWithScoreTwentyFour(){
-		game.roll( 10 );	// STRIKE
+		rollStrike();
 		game.roll( 3 );
 		game.roll( 4 );
 		rollMany(16, 0);
 		
 		assertThat( game , endedWithScore( 24 ) );
+	}
+
+	private void rollStrike() {
+		game.roll( 10 );
 	}
 	
 

@@ -30,12 +30,16 @@ public class BowlingGameTest {
 	
 	@Test
 	public void oneSpare_gameShouldEndWithScoreSixteen(){
-		game.roll( 5 );
-		game.roll( 5 );	// SPARE
+		rollSpare();
 		game.roll( 3 );
 		rollMany(17, 0);
 		
 		assertThat( game , endedWithScore( 16 ) );
+	}
+
+	private void rollSpare() {
+		game.roll( 5 );
+		game.roll( 5 );
 	}
 	
 	
